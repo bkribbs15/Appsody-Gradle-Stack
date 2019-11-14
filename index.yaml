@@ -1,0 +1,13 @@
+apiVersion: v1
+projects:
+  gradle-jdk8:
+  - updated: 2019-11-11T12:10:31+0000
+    name: Gradle Stack
+    version: 0.1.0
+    description: Gradle Stack using Java 8
+    license: Apache-2.0
+    maintainers:
+      - irazabal@us.ibm.com
+    default-template: default
+    urls:
+    - https://github.ibm.com/bakribbs/Appsody-Gradle-Stack/releases/download/1.0.6/incubator.gradle-templates-default.tar.gz

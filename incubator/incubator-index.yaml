@@ -1,0 +1,17 @@
+apiVersion: v2
+stacks:
+  - id: gradle-jdk8
+    name: Gradle Java8 Stack
+    version: 0.2.18
+    description: Gradle Stack built on Java8
+    license: Apache-2.0
+    language: java
+    maintainers: 
+      - name: Alex Irazabal
+        email: irazabal@us.ibm.com
+        github-id: Irazabal
+    default-template: default
+    templates:
+      - id: default
+        url: https://github.ibm.com/bakribbs/Appsody-Gradle-Stack/releases/download/1.0.8/incubator.gradle-templates-default.tar.gz
+  
