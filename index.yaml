@@ -10,4 +10,4 @@ projects:
       - irazabal@us.ibm.com
     default-template: default
     urls:
-    - https://github.com/bkribbs15/Appsody-Gradle-Stack/releases/download/1.0.0/gradle-templates-default.tar.gz
+    - https://github.com/bkribbs15/Appsody-Gradle-Stack/releases/download/1.0.2/gradle-templates-default.tar.gz
