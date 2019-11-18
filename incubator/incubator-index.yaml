@@ -13,5 +13,5 @@ stacks:
     default-template: default
     templates:
       - id: default
-        url: https://github.ibm.com/bakribbs/Appsody-Gradle-Stack/releases/download/1.0.8/incubator.gradle-templates-default.tar.gz
+        url: https://github.com/bkribbs15/Appsody-Gradle-Stack/releases/download/1.0.0/gradle-templates-default.tar.gz
   
