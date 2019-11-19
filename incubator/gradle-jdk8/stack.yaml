@@ -2,9 +2,9 @@ name: Gradle starter Sample
 version: 0.1.0
 description: Runnable starter stack, copy to create a new stack
 license: Apache-2.0
-language: java
+language: bash
 maintainers: 
   - name: Alex Irazabal
     email: irazabal@us.ibm.com
-    github-id: Irazabal
+    github-id: airazabal
 default-template: default
