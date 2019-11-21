@@ -1,0 +1,7 @@
+Running development environment...
+Using local cache for image appsody/gradle-jdk8:0.1
+Running command: docker run --rm -P --name gradle-jdk8-default -v /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/Custom-Stacks/Appsody-Gradle-Stack/ci/build/test/incubator-index-local/gradle-jdk8/default/:/project/userapp -v default-deps:/project/deps -v appsody-controller-0.3.1:/.appsody -t --entrypoint /.appsody/appsody-controller appsody/gradle-jdk8:0.1 --mode=run
+[Container] Running command:  /project/gradlew build && cp build/libs/project.jar ./app.jar && java -jar ./app.jar
+[Container] Downloading https://services.gradle.org/distributions/gradle-5.6.4-bin.zip
+[Container] .................................Wait received error on APPSODY_RUN/DEBUG/TEST exit status 130
+[Error] Error in 'appsody run': exit status 137

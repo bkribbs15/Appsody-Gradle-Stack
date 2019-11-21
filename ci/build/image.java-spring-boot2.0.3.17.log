@@ -1,0 +1,241 @@
+>  docker build --build-arg GIT_ORG_REPO=appsody/stacks --build-arg IMAGE_REGISTRY_ORG=appsody --build-arg STACK_ID=java-spring-boot2 --build-arg MAJOR_VERSION=0 --build-arg MINOR_VERSION=3 --build-arg PATCH_VERSION=17 --label org.opencontainers.image.created=2019-11-20T22:36:00-0500 --label org.opencontainers.image.version=0.3.17 --label org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248 --label appsody.stack=appsody/java-spring-boot2:0.3.17 -t appsody/java-spring-boot2 -t appsody/java-spring-boot2:0.3.17 -t appsody/java-spring-boot2:0 -t appsody/java-spring-boot2:0.3 -f /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/incubator/java-spring-boot2/image/Dockerfile-stack /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/incubator/java-spring-boot2/image
+Sending build context to Docker daemon  44.03kB
+Step 1/42 : FROM maven:3.6-ibmjava-8
+3.6-ibmjava-8: Pulling from library/maven
+7ddbc47eeb70: Already exists
+c1bbdc448b72: Already exists
+8c3b70e39044: Already exists
+45d437916d57: Already exists
+b38769998640: Pulling fs layer
+9b1ec6936284: Pulling fs layer
+fa9bebdfcbbf: Pulling fs layer
+5dd0bf40435d: Pulling fs layer
+008ac242deef: Pulling fs layer
+5dd0bf40435d: Waiting
+008ac242deef: Waiting
+b38769998640: Download complete
+5dd0bf40435d: Verifying Checksum
+5dd0bf40435d: Download complete
+b38769998640: Pull complete
+008ac242deef: Verifying Checksum
+008ac242deef: Download complete
+fa9bebdfcbbf: Verifying Checksum
+fa9bebdfcbbf: Download complete
+9b1ec6936284: Verifying Checksum
+9b1ec6936284: Download complete
+9b1ec6936284: Pull complete
+fa9bebdfcbbf: Pull complete
+5dd0bf40435d: Pull complete
+008ac242deef: Pull complete
+Digest: sha256:23f2dbe17f571dc6293104675ada4a85d03475f2361bc3501668f07a43ccc2d8
+Status: Downloaded newer image for maven:3.6-ibmjava-8
+ ---> 95cd9b87ea26
+Step 2/42 : ARG GIT_ORG_REPO=appsody/stacks
+ ---> Running in 9c87504d9a54
+Removing intermediate container 9c87504d9a54
+ ---> eed05fe0e675
+Step 3/42 : ARG IMAGE_REGISTRY_ORG=appsody
+ ---> Running in 9245b9e7ee40
+Removing intermediate container 9245b9e7ee40
+ ---> fc7f944aa692
+Step 4/42 : ARG STACK_ID=java-spring-boot2
+ ---> Running in a29487f60e63
+Removing intermediate container a29487f60e63
+ ---> 93fc2283f0ac
+Step 5/42 : ARG MAJOR_VERSION=0
+ ---> Running in 46719ea75f31
+Removing intermediate container 46719ea75f31
+ ---> 558b80cd383b
+Step 6/42 : ARG MINOR_VERSION=1
+ ---> Running in 3687d1766682
+Removing intermediate container 3687d1766682
+ ---> 17b3820077d4
+Step 7/42 : ARG PATCH_VERSION=0
+ ---> Running in e0e147c81946
+Removing intermediate container e0e147c81946
+ ---> 6d467d9fcc89
+Step 8/42 : RUN  apt-get -qq update   && apt-get -qq install -y curl wget xmlstarlet unzip   && DEBIAN_FRONTEND=noninteractive apt-get -qq upgrade -y   && apt-get -qq clean   && rm -rf /tmp/* /var/lib/apt/lists/*
+ ---> Running in c275c46225ec
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mSelecting previously unselected package libicu60:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4571 files and directories currently installed.)
+Preparing to unpack .../libicu60_60.2-3ubuntu3_amd64.deb ...
+Unpacking libicu60:amd64 (60.2-3ubuntu3) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../libxml2_2.9.4+dfsg1-6.1ubuntu1.2_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.2) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Preparing to unpack .../libxslt1.1_1.1.29-5ubuntu0.2_amd64.deb ...
+Unpacking libxslt1.1:amd64 (1.1.29-5ubuntu0.2) ...
+Selecting previously unselected package unzip.
+Preparing to unpack .../unzip_6.0-21ubuntu1_amd64.deb ...
+Unpacking unzip (6.0-21ubuntu1) ...
+Selecting previously unselected package xmlstarlet.
+Preparing to unpack .../xmlstarlet_1.6.1-2_amd64.deb ...
+Unpacking xmlstarlet (1.6.1-2) ...
+Setting up libicu60:amd64 (60.2-3ubuntu3) ...
+Setting up unzip (6.0-21ubuntu1) ...
+Setting up libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.2) ...
+Setting up libxslt1.1:amd64 (1.1.29-5ubuntu0.2) ...
+Setting up xmlstarlet (1.6.1-2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0m(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4877 files and directories currently installed.)
+Preparing to unpack .../libssl1.1_1.1.1-1ubuntu2.1~18.04.5_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1-1ubuntu2.1~18.04.5) over (1.1.1-1ubuntu2.1~18.04.4) ...
+Preparing to unpack .../openssl_1.1.1-1ubuntu2.1~18.04.5_amd64.deb ...
+Unpacking openssl (1.1.1-1ubuntu2.1~18.04.5) over (1.1.1-1ubuntu2.1~18.04.4) ...
+Setting up libssl1.1:amd64 (1.1.1-1ubuntu2.1~18.04.5) ...
+Setting up openssl (1.1.1-1ubuntu2.1~18.04.5) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Removing intermediate container c275c46225ec
+ ---> fc2fa9a5f67e
+Step 9/42 : COPY ./LICENSE /licenses/
+ ---> a79174c9d184
+Step 10/42 : COPY ./project /project
+ ---> 115437db2fda
+Step 11/42 : COPY ./config /config
+ ---> 95204d961818
+Step 12/42 : COPY ./mvn-stack-settings.xml /usr/share/maven/conf/settings.xml
+ ---> f159c3da7bd2
+Step 13/42 : COPY ./mvn-stack-settings.xml /project/mvn-stack-settings.xml
+ ---> e64529d35e7f
+Step 14/42 : RUN mkdir -p /mvn/repository  && /project/util/check_version build  && cd /project  && mvn --no-transfer-progress -B -N io.takari:maven:wrapper -Dmaven=$(mvn help:evaluate -Dexpression=maven.version -q -DforceStdout)
+ ---> Running in 5369a434982f
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven:0.7.6:wrapper (default-cli) @ standalone-pom ---
+[INFO] 
+[INFO] Maven Wrapper version 0.5.5 has been successfully set up for your project.
+[INFO] Using Apache Maven: 3.6.2
+[INFO] Repo URL in properties file: https://repo.maven.apache.org/maven2
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.394 s
+[INFO] Finished at: 2019-11-21T03:39:20Z
+[INFO] ------------------------------------------------------------------------
+Removing intermediate container 5369a434982f
+ ---> 051e6ac4b353
+Step 15/42 : RUN if [ ${MAJOR_VERSION} -eq 0 ]; then       export IMAGE_VERSION=${MAJOR_VERSION}.${MINOR_VERSION};     else       export IMAGE_VERSION=${MAJOR_VERSION};     fi  && export MAVEN_ARTIFACT_VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}"  && sed -i -e "s|{{APPSODY_STACK}}|${IMAGE_REGISTRY_ORG}/${STACK_ID}:${IMAGE_VERSION}|"            -e "s|{{APPSODY_STACK_FULL}}|${IMAGE_REGISTRY_ORG}/${STACK_ID}:${MAVEN_ARTIFACT_VERSION}|" /project/Dockerfile  && sed -i -e "s|{{MAVEN_ARTIFACT_VERSION}}|${MAVEN_ARTIFACT_VERSION}|" /project/appsody-boot2-pom.xml
+ ---> Running in 80498c9b31b4
+Removing intermediate container 80498c9b31b4
+ ---> 5f6e8115dca0
+Step 16/42 : WORKDIR /project/user-app
+ ---> Running in 6e2b830ad8fb
+Removing intermediate container 6e2b830ad8fb
+ ---> b92b6ebc8d72
+Step 17/42 : ENV APPSODY_USER_RUN_AS_LOCAL=true
+ ---> Running in 6090bee920a9
+Removing intermediate container 6090bee920a9
+ ---> 38786717f240
+Step 18/42 : ENV APPSODY_PROJECT_DIR="/project"
+ ---> Running in 9f84924d3d95
+Removing intermediate container 9f84924d3d95
+ ---> c81d52a38d15
+Step 19/42 : ENV APPSODY_MOUNTS=".:/project/user-app;~/.m2/repository:/mvn/repository"
+ ---> Running in 6b2036c249d8
+Removing intermediate container 6b2036c249d8
+ ---> 2852304b9feb
+Step 20/42 : ENV APPSODY_DEPS=
+ ---> Running in d3fa0b5467fa
+Removing intermediate container d3fa0b5467fa
+ ---> 90464faaf454
+Step 21/42 : ENV APPSODY_WATCH_DIR="/project/user-app/src"
+ ---> Running in 8ba1ea168ab7
+Removing intermediate container 8ba1ea168ab7
+ ---> 385ad08dd25b
+Step 22/42 : ENV APPSODY_WATCH_IGNORE_DIR=""
+ ---> Running in 0385e90eb599
+Removing intermediate container 0385e90eb599
+ ---> 01e40ee2c13b
+Step 23/42 : ENV APPSODY_WATCH_REGEX="(^.*\.java$)|(^.*\.properties$)|(^.*\.yaml$)|(^.*\.html$)|(^.*\.sql$)|(^.*\.js$)|(^.*\.properties$)"
+ ---> Running in 8661cd6ca3de
+Removing intermediate container 8661cd6ca3de
+ ---> d2e2585de8fd
+Step 24/42 : ENV APPSODY_RUN="/project/java-spring-boot2-build.sh run"
+ ---> Running in dba567ff619a
+Removing intermediate container dba567ff619a
+ ---> 96dc88096476
+Step 25/42 : ENV APPSODY_RUN_ON_CHANGE="/project/java-spring-boot2-build.sh recompile"
+ ---> Running in 01b483715e6b
+Removing intermediate container 01b483715e6b
+ ---> 498d055b1888
+Step 26/42 : ENV APPSODY_RUN_KILL=false
+ ---> Running in c7bd693afa14
+Removing intermediate container c7bd693afa14
+ ---> 25cdb9a05256
+Step 27/42 : ENV APPSODY_DEBUG="/project/java-spring-boot2-build.sh debug"
+ ---> Running in e67653b9590c
+Removing intermediate container e67653b9590c
+ ---> db8a50620f82
+Step 28/42 : ENV APPSODY_DEBUG_ON_CHANGE="/project/java-spring-boot2-build.sh recompile"
+ ---> Running in c6a4aae98488
+Removing intermediate container c6a4aae98488
+ ---> 0e16e7b6eb8e
+Step 29/42 : ENV APPSODY_DEBUG_KILL=false
+ ---> Running in d5163183a2da
+Removing intermediate container d5163183a2da
+ ---> 42edac756ef0
+Step 30/42 : ENV APPSODY_TEST="/project/java-spring-boot2-build.sh test"
+ ---> Running in fbe90def5496
+Removing intermediate container fbe90def5496
+ ---> 56330f229bb6
+Step 31/42 : ENV APPSODY_TEST_ON_CHANGE=""
+ ---> Running in ca85ff4e57f8
+Removing intermediate container ca85ff4e57f8
+ ---> f25fc3734be5
+Step 32/42 : ENV APPSODY_TEST_KILL=true
+ ---> Running in 8a5ea6339a16
+Removing intermediate container 8a5ea6339a16
+ ---> de35e852a1bb
+Step 33/42 : ENV PORT=8080
+ ---> Running in 07a313cc59f8
+Removing intermediate container 07a313cc59f8
+ ---> 335b22c56e23
+Step 34/42 : EXPOSE 8080
+ ---> Running in d39161478410
+Removing intermediate container d39161478410
+ ---> 3a33fb0de5b3
+Step 35/42 : EXPOSE 8443
+ ---> Running in 5eece5ed57af
+Removing intermediate container 5eece5ed57af
+ ---> 3dc08f1fdf50
+Step 36/42 : EXPOSE 5005
+ ---> Running in b2d85ff8ae7c
+Removing intermediate container b2d85ff8ae7c
+ ---> a8f4bf787e70
+Step 37/42 : EXPOSE 35729
+ ---> Running in c83637f67298
+Removing intermediate container c83637f67298
+ ---> 8b89a5550f14
+Step 38/42 : ENTRYPOINT ["/project/java-spring-boot2-build.sh", "run"]
+ ---> Running in 334b0e700705
+Removing intermediate container 334b0e700705
+ ---> d7f306aef14f
+Step 39/42 : LABEL appsody.stack=appsody/java-spring-boot2:0.3.17
+ ---> Running in 96f1a0560298
+Removing intermediate container 96f1a0560298
+ ---> d410413d8468
+Step 40/42 : LABEL org.opencontainers.image.created=2019-11-20T22:36:00-0500
+ ---> Running in 5dd362ccb5d9
+Removing intermediate container 5dd362ccb5d9
+ ---> bdc63c2008ff
+Step 41/42 : LABEL org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248
+ ---> Running in c566daf8c021
+Removing intermediate container c566daf8c021
+ ---> d1616cee5848
+Step 42/42 : LABEL org.opencontainers.image.version=0.3.17
+ ---> Running in 9364f85613d2
+Removing intermediate container 9364f85613d2
+ ---> ec699981461b
+Successfully built ec699981461b
+Successfully tagged appsody/java-spring-boot2:latest
+Successfully tagged appsody/java-spring-boot2:0.3.17
+Successfully tagged appsody/java-spring-boot2:0
+Successfully tagged appsody/java-spring-boot2:0.3

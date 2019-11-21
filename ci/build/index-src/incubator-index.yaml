@@ -1,0 +1,16 @@
+apiVersion: v2
+stacks:
+  - id: gradle-jdk8
+    name: Gradle starter Sample
+    version: 0.1.0
+    description: Runnable starter stack, copy to create a new stack
+    license: Apache-2.0
+    language: bash
+    maintainers: 
+      - name: Alex Irazabal
+        email: irazabal@us.ibm.com
+        github-id: airazabal
+    default-template: default
+    templates:
+      - id: default
+        url: {{EXTERNAL_URL}}/incubator.gradle-jdk8.v0.1.0.templates.default.tar.gz

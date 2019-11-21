@@ -1,0 +1,242 @@
+>  docker build --build-arg GIT_ORG_REPO=appsody/stacks --build-arg IMAGE_REGISTRY_ORG=appsody --build-arg STACK_ID=rust --build-arg MAJOR_VERSION=0 --build-arg MINOR_VERSION=1 --build-arg PATCH_VERSION=4 --label org.opencontainers.image.created=2019-11-20T22:23:24-0500 --label org.opencontainers.image.version=0.1.4 --label org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248 --label appsody.stack=appsody/rust:0.1.4 -t appsody/rust -t appsody/rust:0.1.4 -t appsody/rust:0 -t appsody/rust:0.1 -f /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/rust/image/Dockerfile-stack /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/rust/image
+Sending build context to Docker daemon  20.48kB
+Step 1/26 : FROM rust:1.37
+1.37: Pulling from library/rust
+4a56a430b2ba: Pulling fs layer
+4b5cacb629f5: Pulling fs layer
+14408c8d4f9a: Pulling fs layer
+ea67eaa7dd42: Pulling fs layer
+4d134ac3fe4b: Pulling fs layer
+c63222a351ec: Pulling fs layer
+4d134ac3fe4b: Waiting
+c63222a351ec: Waiting
+ea67eaa7dd42: Waiting
+14408c8d4f9a: Verifying Checksum
+14408c8d4f9a: Download complete
+4b5cacb629f5: Verifying Checksum
+4b5cacb629f5: Download complete
+4a56a430b2ba: Verifying Checksum
+4a56a430b2ba: Download complete
+4a56a430b2ba: Pull complete
+4b5cacb629f5: Pull complete
+14408c8d4f9a: Pull complete
+ea67eaa7dd42: Verifying Checksum
+ea67eaa7dd42: Download complete
+ea67eaa7dd42: Pull complete
+4d134ac3fe4b: Verifying Checksum
+4d134ac3fe4b: Download complete
+4d134ac3fe4b: Pull complete
+c63222a351ec: Verifying Checksum
+c63222a351ec: Download complete
+c63222a351ec: Pull complete
+Digest: sha256:23ca363cf9f1c635965a3b443b10a2b6e50cc357484b63f937e5e53ee761ec3f
+Status: Downloaded newer image for rust:1.37
+ ---> e0566c997dc9
+Step 2/26 : RUN apt-get update && apt-get install -y lldb
+ ---> Running in 8d8a2152f251
+Get:1 http://deb.debian.org/debian buster InRelease [122 kB]
+Get:2 http://deb.debian.org/debian buster-updates InRelease [49.3 kB]
+Get:3 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:4 http://deb.debian.org/debian buster/main amd64 Packages [7908 kB]
+Get:5 http://security.debian.org/debian-security buster/updates/main amd64 Packages [158 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages [5792 B]
+Fetched 8308 kB in 6s (1451 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  binfmt-support liblldb-7 libllvm7 libpipeline1 libpython2.7
+  libpython2.7-minimal libpython2.7-stdlib lldb-7 llvm-7 llvm-7-dev
+  llvm-7-runtime python-lldb-7 python-six python2.7 python2.7-minimal
+Suggested packages:
+  llvm-7-doc python2.7-doc
+The following NEW packages will be installed:
+  binfmt-support liblldb-7 libllvm7 libpipeline1 libpython2.7 lldb lldb-7
+  llvm-7 llvm-7-dev llvm-7-runtime python-lldb-7 python-six
+The following packages will be upgraded:
+  libpython2.7-minimal libpython2.7-stdlib python2.7 python2.7-minimal
+4 upgraded, 12 newly installed, 0 to remove and 42 not upgraded.
+Need to get 60.8 MB of archives.
+After this operation, 310 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian buster/main amd64 python2.7 amd64 2.7.16-2+deb10u1 [305 kB]
+Get:2 http://deb.debian.org/debian buster/main amd64 python2.7-minimal amd64 2.7.16-2+deb10u1 [1369 kB]
+Get:3 http://deb.debian.org/debian buster/main amd64 libpython2.7-stdlib amd64 2.7.16-2+deb10u1 [1912 kB]
+Get:4 http://deb.debian.org/debian buster/main amd64 libpython2.7-minimal amd64 2.7.16-2+deb10u1 [395 kB]
+Get:5 http://deb.debian.org/debian buster/main amd64 libpipeline1 amd64 1.5.1-2 [31.2 kB]
+Get:6 http://deb.debian.org/debian buster/main amd64 binfmt-support amd64 2.2.0-2 [70.0 kB]
+Get:7 http://deb.debian.org/debian buster/main amd64 libllvm7 amd64 1:7.0.1-8 [13.0 MB]
+Get:8 http://deb.debian.org/debian buster/main amd64 libpython2.7 amd64 2.7.16-2+deb10u1 [1036 kB]
+Get:9 http://deb.debian.org/debian buster/main amd64 liblldb-7 amd64 1:7.0.1-8 [7940 kB]
+Get:10 http://deb.debian.org/debian buster/main amd64 llvm-7-runtime amd64 1:7.0.1-8 [190 kB]
+Get:11 http://deb.debian.org/debian buster/main amd64 llvm-7 amd64 1:7.0.1-8 [4553 kB]
+Get:12 http://deb.debian.org/debian buster/main amd64 llvm-7-dev amd64 1:7.0.1-8 [21.3 MB]
+Get:13 http://deb.debian.org/debian buster/main amd64 python-six all 1.12.0-1 [15.7 kB]
+Get:14 http://deb.debian.org/debian buster/main amd64 python-lldb-7 amd64 1:7.0.1-8 [122 kB]
+Get:15 http://deb.debian.org/debian buster/main amd64 lldb-7 amd64 1:7.0.1-8 [8457 kB]
+Get:16 http://deb.debian.org/debian buster/main amd64 lldb amd64 1:7.0-47 [7176 B]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 60.8 MB in 33s (1825 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23959 files and directories currently installed.)
+Preparing to unpack .../00-python2.7_2.7.16-2+deb10u1_amd64.deb ...
+Unpacking python2.7 (2.7.16-2+deb10u1) over (2.7.16-2) ...
+Preparing to unpack .../01-python2.7-minimal_2.7.16-2+deb10u1_amd64.deb ...
+Unpacking python2.7-minimal (2.7.16-2+deb10u1) over (2.7.16-2) ...
+Preparing to unpack .../02-libpython2.7-stdlib_2.7.16-2+deb10u1_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.16-2+deb10u1) over (2.7.16-2) ...
+Preparing to unpack .../03-libpython2.7-minimal_2.7.16-2+deb10u1_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.16-2+deb10u1) over (2.7.16-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package binfmt-support.
+Preparing to unpack .../05-binfmt-support_2.2.0-2_amd64.deb ...
+Unpacking binfmt-support (2.2.0-2) ...
+Selecting previously unselected package libllvm7:amd64.
+Preparing to unpack .../06-libllvm7_1%3a7.0.1-8_amd64.deb ...
+Unpacking libllvm7:amd64 (1:7.0.1-8) ...
+Selecting previously unselected package libpython2.7:amd64.
+Preparing to unpack .../07-libpython2.7_2.7.16-2+deb10u1_amd64.deb ...
+Unpacking libpython2.7:amd64 (2.7.16-2+deb10u1) ...
+Selecting previously unselected package liblldb-7.
+Preparing to unpack .../08-liblldb-7_1%3a7.0.1-8_amd64.deb ...
+Unpacking liblldb-7 (1:7.0.1-8) ...
+Selecting previously unselected package llvm-7-runtime.
+Preparing to unpack .../09-llvm-7-runtime_1%3a7.0.1-8_amd64.deb ...
+Unpacking llvm-7-runtime (1:7.0.1-8) ...
+Selecting previously unselected package llvm-7.
+Preparing to unpack .../10-llvm-7_1%3a7.0.1-8_amd64.deb ...
+Unpacking llvm-7 (1:7.0.1-8) ...
+Selecting previously unselected package llvm-7-dev.
+Preparing to unpack .../11-llvm-7-dev_1%3a7.0.1-8_amd64.deb ...
+Unpacking llvm-7-dev (1:7.0.1-8) ...
+Selecting previously unselected package python-six.
+Preparing to unpack .../12-python-six_1.12.0-1_all.deb ...
+Unpacking python-six (1.12.0-1) ...
+Selecting previously unselected package python-lldb-7.
+Preparing to unpack .../13-python-lldb-7_1%3a7.0.1-8_amd64.deb ...
+Unpacking python-lldb-7 (1:7.0.1-8) ...
+Selecting previously unselected package lldb-7.
+Preparing to unpack .../14-lldb-7_1%3a7.0.1-8_amd64.deb ...
+Unpacking lldb-7 (1:7.0.1-8) ...
+Selecting previously unselected package lldb.
+Preparing to unpack .../15-lldb_1%3a7.0-47_amd64.deb ...
+Unpacking lldb (1:7.0-47) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up python-six (1.12.0-1) ...
+Setting up libpython2.7-minimal:amd64 (2.7.16-2+deb10u1) ...
+Setting up python2.7-minimal (2.7.16-2+deb10u1) ...
+Setting up binfmt-support (2.2.0-2) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libllvm7:amd64 (1:7.0.1-8) ...
+Setting up llvm-7-runtime (1:7.0.1-8) ...
+Setting up llvm-7 (1:7.0.1-8) ...
+Setting up python-lldb-7 (1:7.0.1-8) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.16-2+deb10u1) ...
+Setting up llvm-7-dev (1:7.0.1-8) ...
+Setting up libpython2.7:amd64 (2.7.16-2+deb10u1) ...
+Setting up python2.7 (2.7.16-2+deb10u1) ...
+Setting up liblldb-7 (1:7.0.1-8) ...
+Setting up lldb-7 (1:7.0.1-8) ...
+Setting up lldb (1:7.0-47) ...
+Processing triggers for libc-bin (2.28-10) ...
+Processing triggers for mime-support (3.62) ...
+Removing intermediate container 8d8a2152f251
+ ---> cd34caa073e2
+Step 3/26 : ENV CARGO_HOME=/usr/local/cargo/deps
+ ---> Running in ade9e3b0d484
+Removing intermediate container ade9e3b0d484
+ ---> a711029d2fe4
+Step 4/26 : ENV APPSODY_MOUNTS=.:/project/user-app
+ ---> Running in 0d7ac2a01b8e
+Removing intermediate container 0d7ac2a01b8e
+ ---> 8963f1216055
+Step 5/26 : ENV APPSODY_DEPS=$CARGO_HOME
+ ---> Running in 7b9ab4b4565c
+Removing intermediate container 7b9ab4b4565c
+ ---> fc9b8290ae53
+Step 6/26 : ENV APPSODY_WATCH_DIR="/project/user-app"
+ ---> Running in 76403d4e1c91
+Removing intermediate container 76403d4e1c91
+ ---> 3de121bf15e6
+Step 7/26 : ENV APPSODY_WATCH_REGEX="^(Cargo.toml|.*.rs)$"
+ ---> Running in 67df4a74499e
+Removing intermediate container 67df4a74499e
+ ---> ac6941f84dab
+Step 8/26 : ENV APPSODY_RUN="cargo run"
+ ---> Running in 642bcf39fb75
+Removing intermediate container 642bcf39fb75
+ ---> 1dd8d213f33a
+Step 9/26 : ENV APPSODY_RUN_ON_CHANGE="cargo run"
+ ---> Running in d1541c23e78d
+Removing intermediate container d1541c23e78d
+ ---> b2f670fc5d96
+Step 10/26 : ENV APPSODY_RUN_KILL=true
+ ---> Running in 95577fec0fc6
+Removing intermediate container 95577fec0fc6
+ ---> db68b331593b
+Step 11/26 : ENV APPSODY_TEST="cargo test"
+ ---> Running in d07937dd01e5
+Removing intermediate container d07937dd01e5
+ ---> 19b731491aa9
+Step 12/26 : ENV APPSODY_DEBUG="cargo build && lldb-server platform --listen '*:1234' --min-gdbserver-port 5000 --max-gdbserver-port 5001 --server"
+ ---> Running in a3376ea24151
+Removing intermediate container a3376ea24151
+ ---> b4756fbb17f5
+Step 13/26 : ENV APPSODY_DEBUG_ON_CHANGE="$APPSODY_DEBUG"
+ ---> Running in ed63f0752b33
+Removing intermediate container ed63f0752b33
+ ---> e3230c601f4a
+Step 14/26 : ENV APPSODY_DEBUG_KILL=true
+ ---> Running in a5330d11dc3a
+Removing intermediate container a5330d11dc3a
+ ---> 137b4e4ba709
+Step 15/26 : COPY ./LICENSE /licenses
+ ---> fa0d31988174
+Step 16/26 : COPY ./project /project
+ ---> be41cbcd7905
+Step 17/26 : COPY ./config /config
+ ---> f543c01451e5
+Step 18/26 : WORKDIR /project/user-app
+ ---> Running in 87fa27d31218
+Removing intermediate container 87fa27d31218
+ ---> d34a52603c1d
+Step 19/26 : ENV PORT=8000
+ ---> Running in 95952454c4f0
+Removing intermediate container 95952454c4f0
+ ---> 93951ee993b4
+Step 20/26 : EXPOSE 8000
+ ---> Running in 82eb0df0601d
+Removing intermediate container 82eb0df0601d
+ ---> 7b91d438062c
+Step 21/26 : EXPOSE 1234
+ ---> Running in 6672df417475
+Removing intermediate container 6672df417475
+ ---> 645eacce259f
+Step 22/26 : EXPOSE 5000
+ ---> Running in 17ee1b07d608
+Removing intermediate container 17ee1b07d608
+ ---> 8f417a7c33fc
+Step 23/26 : LABEL appsody.stack=appsody/rust:0.1.4
+ ---> Running in 241dd19f9652
+Removing intermediate container 241dd19f9652
+ ---> 31d0c66b17cf
+Step 24/26 : LABEL org.opencontainers.image.created=2019-11-20T22:23:24-0500
+ ---> Running in ea004f904dcf
+Removing intermediate container ea004f904dcf
+ ---> 26d3aa0eb40d
+Step 25/26 : LABEL org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248
+ ---> Running in 4aff7cc43810
+Removing intermediate container 4aff7cc43810
+ ---> ae31ca016d45
+Step 26/26 : LABEL org.opencontainers.image.version=0.1.4
+ ---> Running in 14c629a8c20c
+Removing intermediate container 14c629a8c20c
+ ---> dc1d7095af6a
+[Warning] One or more build-args [GIT_ORG_REPO IMAGE_REGISTRY_ORG MAJOR_VERSION MINOR_VERSION PATCH_VERSION STACK_ID] were not consumed
+Successfully built dc1d7095af6a
+Successfully tagged appsody/rust:latest
+Successfully tagged appsody/rust:0.1.4
+Successfully tagged appsody/rust:0
+Successfully tagged appsody/rust:0.1

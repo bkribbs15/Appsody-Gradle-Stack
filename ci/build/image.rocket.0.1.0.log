@@ -1,0 +1,208 @@
+>  docker build --build-arg GIT_ORG_REPO=appsody/stacks --build-arg IMAGE_REGISTRY_ORG=appsody --build-arg STACK_ID=rocket --build-arg MAJOR_VERSION=0 --build-arg MINOR_VERSION=1 --build-arg PATCH_VERSION=0 --label org.opencontainers.image.created=2019-11-20T22:16:05-0500 --label org.opencontainers.image.version=0.1.0 --label org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248 --label appsody.stack=appsody/rocket:0.1.0 -t appsody/rocket -t appsody/rocket:0.1.0 -t appsody/rocket:0 -t appsody/rocket:0.1 -f /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/rocket/image/Dockerfile-stack /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/rocket/image
+Sending build context to Docker daemon  11.29MB
+Step 1/28 : FROM rustlang/rust:nightly
+nightly: Pulling from rustlang/rust
+c7b7d16361e0: Pulling fs layer
+b7a128769df1: Pulling fs layer
+1128949d0793: Pulling fs layer
+667692510b70: Pulling fs layer
+bed4ecf88e6a: Pulling fs layer
+07020bb8605f: Pulling fs layer
+667692510b70: Waiting
+bed4ecf88e6a: Waiting
+07020bb8605f: Waiting
+b7a128769df1: Download complete
+1128949d0793: Verifying Checksum
+1128949d0793: Download complete
+c7b7d16361e0: Verifying Checksum
+c7b7d16361e0: Download complete
+c7b7d16361e0: Pull complete
+b7a128769df1: Pull complete
+1128949d0793: Pull complete
+667692510b70: Verifying Checksum
+667692510b70: Download complete
+667692510b70: Pull complete
+bed4ecf88e6a: Verifying Checksum
+bed4ecf88e6a: Download complete
+bed4ecf88e6a: Pull complete
+07020bb8605f: Verifying Checksum
+07020bb8605f: Download complete
+07020bb8605f: Pull complete
+Digest: sha256:bf4b2c062d9d865782ccc411c2349e6753ab2e36bf259428a182002cbdff83a5
+Status: Downloaded newer image for rustlang/rust:nightly
+ ---> 37d07db6496e
+Step 2/28 : ENV CARGO_HOME=/usr/local/cargo/deps
+ ---> Running in 92516613b59b
+Removing intermediate container 92516613b59b
+ ---> aca907ee1ab2
+Step 3/28 : ENV CARGO_TARGET_DIR=$CARGO_HOME/target
+ ---> Running in cee292ba817c
+Removing intermediate container cee292ba817c
+ ---> 171bb1afcf92
+Step 4/28 : ENV APPSODY_MOUNTS=/Cargo.toml:/project/copy/Cargo.toml;/src:/project/user-app/src/
+ ---> Running in 481faba4454f
+Removing intermediate container 481faba4454f
+ ---> 50d1fad48df4
+Step 5/28 : ENV APPSODY_DEPS=$CARGO_HOME
+ ---> Running in 08461bbf9abc
+Removing intermediate container 08461bbf9abc
+ ---> bf23b38093c4
+Step 6/28 : ENV APPSODY_PROJECT_DIR=/project
+ ---> Running in 2fe0d89313c3
+Removing intermediate container 2fe0d89313c3
+ ---> d71e51319e5f
+Step 7/28 : ENV APPSODY_WATCH_DIR="/project/user-app"
+ ---> Running in 8aa2446a441b
+Removing intermediate container 8aa2446a441b
+ ---> 966b0f91b344
+Step 8/28 : ENV APPSODY_WATCH_IGNORE_DIR="/project/user-app/.appsody"
+ ---> Running in f2fec5bf290a
+Removing intermediate container f2fec5bf290a
+ ---> 684c724d0232
+Step 9/28 : ENV APPSODY_WATCH_REGEX="(^.*.rs$)"
+ ---> Running in 271e5a0d885a
+Removing intermediate container 271e5a0d885a
+ ---> db14201b574e
+Step 10/28 : ENV ROCKET_ADDRESS=0.0.0.0
+ ---> Running in 2a7f6b698e3c
+Removing intermediate container 2a7f6b698e3c
+ ---> 41a30a9c2219
+Step 11/28 : ENV ROCKET_PORT=8000
+ ---> Running in 5b3fb7374e08
+Removing intermediate container 5b3fb7374e08
+ ---> b799d73e4a98
+Step 12/28 : ENV APPSODY_PREP="cp /project/copy/Cargo.toml /project/user-app/Cargo.toml && cargo add -q appsody-rocket --path=../deps"
+ ---> Running in 6bcf069c2bca
+Removing intermediate container 6bcf069c2bca
+ ---> d95dcaf56b4a
+Step 13/28 : ENV APPSODY_RUN="cargo run"
+ ---> Running in 3d35983f77f0
+Removing intermediate container 3d35983f77f0
+ ---> 4160225d9d5d
+Step 14/28 : ENV APPSODY_RUN_ON_CHANGE="cargo run"
+ ---> Running in 62bf27505f85
+Removing intermediate container 62bf27505f85
+ ---> 7bb09443138d
+Step 15/28 : ENV APPSODY_RUN_KILL=true
+ ---> Running in dbbdef003e19
+Removing intermediate container dbbdef003e19
+ ---> c210488c2240
+Step 16/28 : ENV APPSODY_TEST="cargo test -p appsody-rocket && cargo test"
+ ---> Running in 3dd5da8ca9a1
+Removing intermediate container 3dd5da8ca9a1
+ ---> 95320adad672
+Step 17/28 : COPY ./LICENSE /licenses
+ ---> 4ee22979e817
+Step 18/28 : COPY ./project /project
+ ---> a2aebac1bd7b
+Step 19/28 : COPY ./config /config
+ ---> 04dedeb0a3f6
+Step 20/28 : WORKDIR /project/deps
+ ---> Running in ba210d83646c
+Removing intermediate container ba210d83646c
+ ---> b21a47b90fb5
+Step 21/28 : RUN cp /project/cargo-add /usr/local/cargo/bin && cargo fetch
+ ---> Running in 21ff648d21d5
+[91m    Updating crates.io index
+[0m[91m Downloading crates ...
+[0m[91m  Downloaded libc v0.2.65
+[0m[91m  Downloaded[0m[91m url v1.7.2
+[0m[91m  Downloaded smallvec v0.6.13
+[0m[91m  Downloaded cfg-if v0.1.10
+[0m[91m  Downloaded typeable v0.1.2
+[0m[91m  Downloaded byteorder v1.3.2[0m[91m
+[0m[91m  Downloaded lazy_static v1.4.0
+[0m[91m  Downloaded atty v0.2.13
+[0m[91m  Downloaded syn v0.15.44
+[0m[91m  Downloaded quick-error v1.2.2
+[0m[91m  Downloaded protobuf v2.8.1
+[0m[91m  Downloaded yansi v0.5.0
+[0m[91m  Downloaded serde v1.0.102
+[0m[91m  Downloaded time v0.1.42
+[0m[91m  Downloaded version_check v0.9.1
+[0m[91m  Downloaded unicode-xid v0.1.0
+[0m[91m  Downloaded maybe-uninit v2.0.0
+[0m[91m  Downloaded pear_codegen v0.1.2
+[0m[91m  Downloaded redox_syscall v0.1.56
+[0m[91m  Downloaded version_check v0.1.5
+[0m[91m  Downloaded indexmap v1.3.0
+[0m[91m  Downloaded autocfg v0.1.7
+[0m[91m  Downloaded traitobject v0.1.0
+[0m[91m  Downloaded matches v0.1.8
+[0m[91m  Downloaded quote v0.6.13
+[0m[91m  Downloaded num_cpus v1.11.1
+[0m[91m  Downloaded log v0.4.8
+[0m[91m  Downloaded toml v0.4.10
+[0m[91m  Downloaded log v0.3.9
+[0m[91m  Downloaded safemem v0.3.3
+[0m[91m  Downloaded unicase v1.4.2
+[0m[91m  Downloaded language-tags v0.2.2
+[0m[91m  Downloaded cc v1.0.47
+[0m[91m  Downloaded httparse v1.3.4
+[0m[91m  Downloaded fnv v1.0.6
+[0m[91m  Downloaded base64 v0.9.3
+[0m[91m  Downloaded untrusted v0.6.2
+[0m[91m  Downloaded bitflags v1.2.1
+[0m[91m  Downloaded proc-macro2 v0.4.30
+[0m[91m  Downloaded percent-encoding v1.0.1
+[0m[91m  Downloaded unicode-bidi v0.3.4
+[0m[91m  Downloaded memchr v2.2.1
+[0m[91m  Downloaded base64 v0.10.1
+[0m[91m  Downloaded pear v0.1.2
+[0m[91m  Downloaded spin v0.5.2
+[0m[91m  Downloaded mime v0.2.6
+[0m[91m  Downloaded yansi v0.4.0
+[0m[91m  Downloaded devise_codegen v0.2.0
+[0m[91m  Downloaded rocket_prometheus v0.3.0
+[0m[91m  Downloaded state v0.4.1
+[0m[91m  Downloaded devise v0.2.0
+[0m[91m  Downloaded devise_core v0.2.0
+[0m[91m  Downloaded hermit-abi v0.1.3
+[0m[91m  Downloaded hyper v0.10.16
+[0m[91m  Downloaded unicode-normalization v0.1.9
+[0m[91m  Downloaded cookie v0.11.1
+[0m[91m  Downloaded rocket_codegen v0.4.2
+[0m[91m  Downloaded rocket_http v0.4.2
+[0m[91m  Downloaded prometheus v0.7.0
+[0m[91m  Downloaded rocket v0.4.2
+[0m[91m  Downloaded idna v0.1.5
+[0m[91m  Downloaded winapi-i686-pc-windows-gnu v0.4.0
+[0m[91m  Downloaded winapi v0.3.8
+[0m[91m  Downloaded ring v0.13.5
+[0m[91m  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0
+[0mRemoving intermediate container 21ff648d21d5
+ ---> 9b88bcd20978
+Step 22/28 : WORKDIR /project/user-app
+ ---> Running in abf698e5f63a
+Removing intermediate container abf698e5f63a
+ ---> 57f154d143f4
+Step 23/28 : ENV PORT=8000
+ ---> Running in 3dbd71c79b42
+Removing intermediate container 3dbd71c79b42
+ ---> f2ecdaca62e2
+Step 24/28 : EXPOSE 8000
+ ---> Running in 92c109ff0feb
+Removing intermediate container 92c109ff0feb
+ ---> 4271c3a84f4a
+Step 25/28 : LABEL appsody.stack=appsody/rocket:0.1.0
+ ---> Running in c5dc1b46053e
+Removing intermediate container c5dc1b46053e
+ ---> 10bc89e450a0
+Step 26/28 : LABEL org.opencontainers.image.created=2019-11-20T22:16:05-0500
+ ---> Running in bb5ff7ccce41
+Removing intermediate container bb5ff7ccce41
+ ---> 3e79580a9f11
+Step 27/28 : LABEL org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248
+ ---> Running in dbac65dbc936
+Removing intermediate container dbac65dbc936
+ ---> 15f361499337
+Step 28/28 : LABEL org.opencontainers.image.version=0.1.0
+ ---> Running in 1fb62b6ac337
+Removing intermediate container 1fb62b6ac337
+ ---> c9ec358855f9
+[Warning] One or more build-args [IMAGE_REGISTRY_ORG MAJOR_VERSION MINOR_VERSION PATCH_VERSION STACK_ID GIT_ORG_REPO] were not consumed
+Successfully built c9ec358855f9
+Successfully tagged appsody/rocket:latest
+Successfully tagged appsody/rocket:0.1.0
+Successfully tagged appsody/rocket:0
+Successfully tagged appsody/rocket:0.1

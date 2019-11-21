@@ -1,0 +1,25 @@
+>  docker build --build-arg GIT_ORG_REPO=appsody/stacks --build-arg IMAGE_REGISTRY_ORG=appsody --build-arg STACK_ID=kitura --build-arg MAJOR_VERSION=0 --build-arg MINOR_VERSION=2 --build-arg PATCH_VERSION=2 --label org.opencontainers.image.created=2019-11-20T22:39:32-0500 --label org.opencontainers.image.version=0.2.2 --label org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248 --label appsody.stack=appsody/kitura:0.2.2 -t appsody/kitura -t appsody/kitura:0.2.2 -t appsody/kitura:0 -t appsody/kitura:0.2 -f /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/incubator/kitura/image/Dockerfile-stack /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/incubator/kitura/image
+Sending build context to Docker daemon  49.66kB
+Step 1/30 : FROM appsody/swift:0.2
+0.2: Pulling from appsody/swift
+7ddbc47eeb70: Already exists
+c1bbdc448b72: Already exists
+8c3b70e39044: Already exists
+45d437916d57: Already exists
+31400cff7f02: Pulling fs layer
+78afb47c753c: Pulling fs layer
+9d36e85b20b2: Pulling fs layer
+176a15cb409e: Pulling fs layer
+4461d669927a: Pulling fs layer
+db66860c2552: Pulling fs layer
+27dbfe8b737f: Pulling fs layer
+176a15cb409e: Waiting
+4461d669927a: Waiting
+db66860c2552: Waiting
+27dbfe8b737f: Waiting
+9d36e85b20b2: Download complete
+176a15cb409e: Download complete
+4461d669927a: Verifying Checksum
+4461d669927a: Download complete
+db66860c2552: Download complete
+27dbfe8b737f: Download complete

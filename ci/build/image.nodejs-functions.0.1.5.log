@@ -1,0 +1,85 @@
+>  docker build --build-arg GIT_ORG_REPO=appsody/stacks --build-arg IMAGE_REGISTRY_ORG=appsody --build-arg STACK_ID=nodejs-functions --build-arg MAJOR_VERSION=0 --build-arg MINOR_VERSION=1 --build-arg PATCH_VERSION=5 --label org.opencontainers.image.created=2019-11-20T22:10:26-0500 --label org.opencontainers.image.version=0.1.5 --label org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248 --label appsody.stack=appsody/nodejs-functions:0.1.5 -t appsody/nodejs-functions -t appsody/nodejs-functions:0.1.5 -t appsody/nodejs-functions:0 -t appsody/nodejs-functions:0.1 -f /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/nodejs-functions/image/Dockerfile-stack /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/stacks/experimental/nodejs-functions/image
+Sending build context to Docker daemon  26.11kB
+Step 1/20 : FROM appsody/nodejs-express:0.2
+ ---> c54046ebcfaa
+Step 2/20 : ENV APPSODY_MOUNTS=/:/project/user-app/functions
+ ---> Running in 8ece1619124a
+Removing intermediate container 8ece1619124a
+ ---> 015b8686f109
+Step 3/20 : ENV APPSODY_DEPS=/project/user-app/functions/node_modules
+ ---> Running in 9a2a0456c938
+Removing intermediate container 9a2a0456c938
+ ---> ebf661b3c6db
+Step 4/20 : ENV APPSODY_WATCH_DIR=/project/user-app/functions
+ ---> Running in 8d4f2a75348f
+Removing intermediate container 8d4f2a75348f
+ ---> 31f4592a34aa
+Step 5/20 : ENV APPSODY_WATCH_IGNORE_DIR=/project/user-app/functions/node_modules
+ ---> Running in 12e53d5e6f7c
+Removing intermediate container 12e53d5e6f7c
+ ---> f5e316df057a
+Step 6/20 : ENV APPSODY_INSTALL="npm install --prefix user-app/functions && npm audit fix --prefix user-app/functions"
+ ---> Running in 3a35ef0c4c29
+Removing intermediate container 3a35ef0c4c29
+ ---> 280c3f003e34
+Step 7/20 : ENV APPSODY_TEST="npm test && npm test --prefix user-app/functions"
+ ---> Running in 7f031f68e107
+Removing intermediate container 7f031f68e107
+ ---> f85b8223a0ee
+Step 8/20 : COPY ./LICENSE /licenses/
+ ---> bcdf364cccc5
+Step 9/20 : COPY ./project /project/user-app
+ ---> 75d6399e99ec
+Step 10/20 : COPY ./config /config
+ ---> 0594c1c0875f
+Step 11/20 : WORKDIR /project
+ ---> Running in 4c0477378cb9
+Removing intermediate container 4c0477378cb9
+ ---> 3743a4fa7e77
+Step 12/20 : RUN npm install && npm audit fix
+ ---> Running in 31a17f272a18
+audited 1189 packages in 2.545s
+found 2 high severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+updated 1 package in 2.386s
+fixed 2 of 2 vulnerabilities in 1189 scanned packages
+Removing intermediate container 31a17f272a18
+ ---> 8b47f4198941
+Step 13/20 : ENV PORT=3000
+ ---> Running in 7f1228f6a873
+Removing intermediate container 7f1228f6a873
+ ---> 9c2e9a94409a
+Step 14/20 : ENV NODE_PATH=/project/user-app/functions/node_modules
+ ---> Running in d2a70e812cf3
+Removing intermediate container d2a70e812cf3
+ ---> 5eaa5623bbf6
+Step 15/20 : EXPOSE 3000
+ ---> Running in cff5a2f5d6c6
+Removing intermediate container cff5a2f5d6c6
+ ---> dab92c1eb3aa
+Step 16/20 : EXPOSE 9229
+ ---> Running in 830370b34a49
+Removing intermediate container 830370b34a49
+ ---> 86b4f454858e
+Step 17/20 : LABEL appsody.stack=appsody/nodejs-functions:0.1.5
+ ---> Running in 2c2c463f52d1
+Removing intermediate container 2c2c463f52d1
+ ---> b215c15e8ca8
+Step 18/20 : LABEL org.opencontainers.image.created=2019-11-20T22:10:26-0500
+ ---> Running in 29648e02d15a
+Removing intermediate container 29648e02d15a
+ ---> 7861bc305fb1
+Step 19/20 : LABEL org.opencontainers.image.revision=ea9fee0823422305f883619acea8fcf7a1a85248
+ ---> Running in 5533eab887a6
+Removing intermediate container 5533eab887a6
+ ---> 14d6b6cc335e
+Step 20/20 : LABEL org.opencontainers.image.version=0.1.5
+ ---> Running in 7c41caf695e7
+Removing intermediate container 7c41caf695e7
+ ---> ca65f10b0f35
+[Warning] One or more build-args [IMAGE_REGISTRY_ORG MAJOR_VERSION MINOR_VERSION PATCH_VERSION STACK_ID GIT_ORG_REPO] were not consumed
+Successfully built ca65f10b0f35
+Successfully tagged appsody/nodejs-functions:latest
+Successfully tagged appsody/nodejs-functions:0.1.5
+Successfully tagged appsody/nodejs-functions:0
+Successfully tagged appsody/nodejs-functions:0.1

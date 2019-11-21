@@ -1,0 +1,76 @@
+Extracting project from development environment
+Using local cache for image appsody/gradle-jdk8:0.1
+Running command: docker create --name default-extract -v /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/Custom-Stacks/Appsody-Gradle-Stack/ci/build/test/incubator-index-local/gradle-jdk8/default/:/project/userapp appsody/gradle-jdk8:0.1
+Running command: docker cp default-extract:/project /Users/bakribbs/.appsody/extract/default
+Running command: docker rm default-extract -f
+Project extracted to /Users/bakribbs/.appsody/extract/default
+Running git command: git version
+Running git command: git status -sb
+Attempting to perform git config --local remote.<origin>.url  ...
+Running git command: git config --local remote.origin.url
+Running git command: git log -n 1 --pretty=format:'{"author":"%an", "authoremail":"%ae", "sha":"%H", "date":"%cd", "committer":"%cn", "committeremail":"%ce", "message":"%s"}'
+Running command: docker build -t default --label dev.appsody.stack.configured=appsody/gradle-jdk8:0.1 --label org.opencontainers.image.url=https://github.com/bkribbs15/Appsody-Gradle-Stack --label dev.appsody.image.commit.author=Bryan Kribbs <bakribbs@us.ibm.com> --label dev.appsody.image.commit.message=Updates --label org.opencontainers.image.created=2019-11-20T23:05:45-05:00 --label dev.appsody.image.commit.committer=Bryan Kribbs <bakribbs@us.ibm.com> --label org.opencontainers.image.revision=86bcad9cce465dae73002587b73c4122c7449b77-modified --label dev.appsody.stack.revision=86bcad9cce465dae73002587b73c4122c7449b77 --label org.opencontainers.image.title=default --label org.opencontainers.image.documentation=https://github.com/bkribbs15/Appsody-Gradle-Stack --label dev.appsody.stack.created=2019-11-20T23:02:48-0500 --label dev.appsody.stack.version=0.1.0 --label dev.appsody.stack.tag=appsody/gradle-jdk8:0.1.0 --label org.opencontainers.image.source=https://github.com/bkribbs15/Appsody-Gradle-Stack/tree/master --label dev.appsody.image.commit.date=Wed Nov 20 23:00:42 2019 -0500 --label dev.appsody.image.commit.contextDir=/ci/build/test/incubator-index-local/gradle-jdk8/default -f /Users/bakribbs/.appsody/extract/default/Dockerfile /Users/bakribbs/.appsody/extract/default
+[Docker] Sending build context to Docker daemon  169.5kB
+[Docker] Step 1/24 : FROM  appsody/gradle-jdk8:0.1 as compile
+[Docker]  ---> f38354d82a2e
+[Docker] Step 2/24 : COPY . /project
+[Docker]  ---> 3c0694d1a40b
+[Docker] Step 3/24 : WORKDIR /project
+[Docker]  ---> Running in df560ac7dc93
+[Docker] Removing intermediate container df560ac7dc93
+[Docker]  ---> 48dadfb41766
+[Docker] Step 4/24 : RUN ./gradlew build
+[Docker]  ---> Running in a4976f0c22b7
+[Docker] Downloading https://services.gradle.org/distributions/gradle-5.6.4-bin.zip
+[Docker] .......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+[Docker] Unzipping /root/.gradle/wrapper/dists/gradle-5.6.4-bin/bxirm19lnfz6nurbatndyydux/gradle-5.6.4-bin.zip to /root/.gradle/wrapper/dists/gradle-5.6.4-bin/bxirm19lnfz6nurbatndyydux
+[Docker] Set executable permissions for: /root/.gradle/wrapper/dists/gradle-5.6.4-bin/bxirm19lnfz6nurbatndyydux/gradle-5.6.4/bin/gradle
+[Docker] 
+[Docker] Welcome to Gradle 5.6.4!
+[Docker] 
+[Docker] Here are the highlights of this release:
+[Docker]  - Incremental Groovy compilation
+[Docker]  - Groovy compile avoidance
+[Docker]  - Test fixtures for Java projects
+[Docker]  - Manage plugin versions via settings script
+[Docker] 
+[Docker] For more details see https://docs.gradle.org/5.6.4/release-notes.html
+[Docker] 
+[Docker] Starting a Gradle Daemon (subsequent builds will be faster)
+[Docker] > Task :compileJava
+[Docker] > Task :processResources
+[Docker] > Task :classes
+[Docker] > Task :bootJar
+[Docker] > Task :jar SKIPPED
+[Docker] > Task :assemble
+[Docker] > Task :compileTestJava
+[Docker] > Task :processTestResources NO-SOURCE
+[Docker] > Task :testClasses
+[Docker] 
+[Docker] > Task :test
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalFromJson STARTED
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalFromJson STANDARD_OUT
+[Docker]     My JSON String:{"customerId":"asdgadsfads","email":"my@email.com","firstName":"John","lastName":"Smith","imageUrl":"/image/myimage.jpg","username":"user1","password":"asdf"}
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalFromJson PASSED
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalToJson STARTED
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalToJson STANDARD_OUT
+[Docker]     Marshalled Customer to JSON:{"customerId":"abcdefgh","email":"my@email.com","firstName":"Name","lastName":"Last","imageUrl":"/image/myimage.jpg","username":"user1","password":"asdf"}
+[Docker]     My JSON String:{"customerId":"abcdefgh","email":"my@email.com","firstName":"Name","lastName":"Last","imageUrl":"/image/myimage.jpg","username":"user1","password":"asdf"}
+[Docker] 
+[Docker] customer.CustomerControllerTest > testMarshalToJson PASSED
+[Docker] 
+[Docker] > Task :check
+[Docker] > Task :build
+[Docker] 
+[Docker] BUILD SUCCESSFUL in 1m 39s
+[Docker] 5 actionable tasks: 5 executed
+[Docker] Removing intermediate container a4976f0c22b7
+[Docker]  ---> 92d8ac57d94a
+[Docker] Step 5/24 : COPY  ./build/libs/project.jar ./app.jar
+[Docker] COPY failed: stat /var/lib/docker/tmp/docker-builder077699767/build/libs/project.jar: no such file or directory
+[Error] exit status 1

@@ -1,0 +1,12 @@
+Checking stack requirements...
+Skipping Docker - No requirements set.
+Skipping Appsody - No requirements set.
+Skipping Buildah - No requirements set.
+Running appsody init...
+Downloading gradle-jdk8 template project from file:///Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/Custom-Stacks/Appsody-Gradle-Stack/ci/assets/incubator.gradle-jdk8.v0.1.0.templates.default.tar.gz
+Download complete. Extracting files from /Users/bakribbs/GitHub/Cloud/Cloud-Native/Appsody/Custom-Stacks/Appsody-Gradle-Stack/ci/build/test/incubator-index-local/gradle-jdk8/default/gradle-jdk8.tar.gz
+Setting up the development environment
+Your Appsody project name has been set to default
+Using local cache for image appsody/gradle-jdk8:0.1
+Running command: docker run --rm --entrypoint /bin/bash appsody/gradle-jdk8:0.1 -c find /project -type f -name .appsody-init.sh
+Successfully initialized Appsody project with the incubator-index-local/gradle-jdk8 stack and the default template.
