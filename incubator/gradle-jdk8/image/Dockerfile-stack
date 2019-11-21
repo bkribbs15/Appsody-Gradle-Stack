@@ -36,7 +36,9 @@ ENV GRADLE_VERSION 5.6.4
 
 ## APPSODY STUFF
 # See https://appsody.dev/docs/stacks/environment-variables for more information about each variable.
-
+##
+ENV APPSODY_DOCKER_IMAGE="gradle-build"
+##
 # Mount the application directory into the container filesystem, for example
 ENV APPSODY_MOUNTS=/:/project/userapp
 ENV APPSODY_PROJECT_DIR="/project"
@@ -55,7 +57,6 @@ ENV APPSODY_WATCH_REGEX="^.*.sh$"
 
 # Optional command executed before RUN/TEST/DEBUG - typically used to install any dependencies from
 # the user application
-
 ENV APPSODY_PREP=
 
 # Configurations for appsody run
@@ -66,8 +67,8 @@ ENV APPSODY_PREP=
 ##
 
 #/project/gradlew build && java -jar build/libs/$APPSODY_JAVA_JAR
-
 ENV APPSODY_RUN="/project/gradlew build && cp build/libs/project.jar ./app.jar && java -jar ./app.jar"
+##
 ENV APPSODY_RUN_ON_CHANGE=$APPSODY_RUN
 ENV APPSODY_RUN_KILL=false
 
@@ -98,12 +99,10 @@ COPY ./config /config
 WORKDIR /project
 
 # Expose the relevant ports (change this to be specific to your application).
-# EXPOSE $APPSODY_PORT
-# update Dockerfile
-
+#EXPOSE $APPSODY_PORT
+#update Dockerfile
 ##
-ENV DOCKER_IMAGE="gradle-build"
-RUN sed -i -e "s|{{DOCKER_IMAGE}}|${GRADLE_VERSION}-gradle-build|" /project/Dockerfile
+RUN sed -i -e "s|{{APPSODY_DOCKER_IMAGE}}|${GRADLE_VERSION}-gradle-build|" /project/Dockerfile
 ##
 
 CMD ["/bin/bash"]
